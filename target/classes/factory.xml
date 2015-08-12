@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="GBK"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd"
+	default-lazy-init="true">
+	<bean id="dog" class="springtest4.BeingFactory" factory-method="getBeing">
+		<constructor-arg value="dog"/>
+		<property name="msg" value="I'm a dog"/>
+	</bean>
+	<bean id="cat" class="springtest4.BeingFactory" factory-method="getBeing">
+		<constructor-arg value="cat"/>
+		<property name="msg" value="I'm a cat"/>
+	</bean>
+	
+	<bean id="personFactory" class="springtest4.PersonFactory"/>
+	<bean id="chinese" factory-bean="personFactory" factory-method="getPerson">
+		<constructor-arg value="chin"/>
+	</bean>
+	<bean id="american" factory-bean="personFactory" factory-method="getPerson">
+		<constructor-arg value="ame"/>
+	</bean>
+	
+	<bean id="north" class="springtest4.GetFieldFactoryBean">
+		<property name="targetClass" value="java.awt.BorderLayout"/>
+		<property name="targetField" value="NORTH"/>
+	</bean>
+	<bean id="theValue" class="springtest4.GetFieldFactoryBean">
+		<property name="targetClass" value="java.sql.ResultSet"/>
+		<property name="targetField" value="TYPE_SCROLL_SENSITIVE"/>
+	</bean>
+</beans>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="GBK"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+	http://www.springframework.org/schema/util
+	http://www.springframework.org/schema/util/spring-util-4.0.xsd"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:util="http://www.springframework.org/schema/util"
+	default-lazy-init="true">
+
+	<bean id="chinese" class="springpostprocessor.Chinese" 
+		init-method="init" p:axe-ref="steelAxe" p:name="Blues"/>
+	<bean id="steelAxe" class="springpostprocessor.SteelAxe"/>
+	<!-- <bean class="springpostprocessor.MyPostProcessor"/> -->	
+	<bean id="bp" class="springpostprocessor.MyPostProcessor"/>
+	<bean class="springpostprocessor.MyFactoryPostProcessor"/>
+</beans>

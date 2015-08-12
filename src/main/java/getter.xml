@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="GBK"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd"
+	default-lazy-init="true">
+	<!-- <util:property id="son1" path="person.son"/> <util:property id="theAge" 
+		path="person.son.age"/> -->
+	<bean id="person" class="springtest6.Person">
+		<property name="age" value="30" />
+		<property name="son">
+			<bean class="springtest6.Son">
+				<property name="age" value="11" />
+			</bean>
+		</property>
+	</bean>
+	<bean id="son1"
+		class="org.springframework.beans.factory.config.PropertyPathFactoryBean">
+		<property name="targetBeanName" value="person" />
+		<property name="propertyPath" value="son" />
+	</bean>
+	<bean id="son2" class="springtest6.Son">
+		<property name="age">
+			<bean id="person.son.age"
+				class="org.springframework.beans.factory.config.PropertyPathFactoryBean" />
+		</property>
+	</bean>
+	<bean id="theAge"
+		class="org.springframework.beans.factory.config.PropertyPathFactoryBean">
+		<property name="targetBeanName" value="person" />
+		<property name="propertyPath" value="son.age" />
+	</bean>
+	<bean id="theAge2"
+		class="org.springframework.beans.factory.config.PropertyPathFactoryBean">
+		<property name="targetBeanName" value="person" />
+		<property name="propertyPath" value="age" />
+	</bean>
+	<bean id="theAge3"
+		class="org.springframework.beans.factory.config.PropertyPathFactoryBean">
+		<property name="targetObject">
+			<bean class="springtest6.Person">
+				<property name="age" value="30" />
+			</bean>
+		</property>
+		<property name="propertyPath" value="age" />
+	</bean>
+
+	<!-- Get field. -->
+	<!-- <bean id="theAge4" class="org.springframework.beans.factory.config.FieldRetrievingFactoryBean"> 
+		<property name="staticField" vlaue="java.sql.Connection.TRANSACTION_SERIALIZABLE"/> 
+		</bean> -->
+	<!-- <util:constant id="theAge4" static-field="java.sql.Connection.TRANSACTION_SERIALIZABLE"/> -->
+	<bean id="theAge4"
+		class="org.springframework.beans.factory.config.FieldRetrievingFactoryBean">
+		<property name="targetClass" value="java.sql.Connection" />
+		<property name="targetField" value="TRANSACTION_SERIALIZABLE"></property>
+	</bean>
+	<bean id="son" class="springtest6.Son">
+		<property name="age">
+			<!-- <util:constant static-field="java.sql.Connection.TRANSACTION_SERIALIZABLE"/> -->
+			<bean id="java.sql.Connection.TRANSACTION_SERIALIZABLE"
+				class="org.springframework.beans.factory.config.FieldRetrievingFactoryBean"/>
+		</property>
+	</bean>
+	
+	<!-- Get return. -->
+	<bean></bean>
+</beans>

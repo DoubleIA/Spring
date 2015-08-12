@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="GBK"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd"
+	default-lazy-init="true">
+	<bean id="chinese" class="springtest5.Chinese">
+		<lookup-method name="getDog" bean="gunDog"/>
+	</bean>
+	<bean id="gunDog" class="springtest5.GunDog" scope="prototype">
+		<property name="name" value="Blues"></property>
+	</bean>
+</beans>

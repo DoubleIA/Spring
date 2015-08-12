@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="GBK"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd"
+	default-lazy-init="true">
+
+	<bean id="chinese" class="springtest1.Chinese">
+		<property name="axe" ref="steelaxe"/>
+	</bean>	
+	<bean id="japanese" class="springtest1.Japanese">
+		<constructor-arg ref="stoneaxe"/>
+	</bean>
+	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basenames">
+			<list>
+				<value>message</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="stoneaxe" class="springtest1.StoneAxe"/>
+	<bean id="steelaxe" class="springtest1.SteelAxe"/>
+	
+	<bean class="springtest2.EmailNotifier"/>
+	
+	<bean id="person" class="springtest2.Person"/>
+	<bean id="person2" class="springtest2.Person" scope="prototype"/>
+	<bean id="date" class="java.util.Date"/>
+	<bean id="exampleBean" class="springtest2.ExampleBean">
+		<property name="integerField" value="1"/>		
+		<property name="doubleField" value="2.3"/>		
+	</bean>
+	
+	<bean id="chin" class="springtest1.ChineseBeanId"/>
+	
+	<bean id="chineseInit" class="springtest1.ChineseInitExIB" init-method="init">
+		<property name="axe" ref="steelaxe"/>
+	</bean>
+	<bean id="chineseDis" class="springtest1.ChineseDisB" destroy-method="close">
+		<property name="axe" ref="steelaxe"/>
+	</bean>
+</beans>

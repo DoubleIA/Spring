@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="GBK"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd"
+	default-lazy-init="true">
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+		<property name="driverClass" value="com.mysql.jdbc.Driver"/>
+		<property name="jdbcUrl" value="jdbc:mysql://localhost/Double"/>
+		<property name="user" value="root"/>
+		<property name="password" value="double"/>
+		<property name="maxPoolSize" value="200"/>
+		<property name="minPoolSize" value="2"/>
+		<property name="initialPoolSize" value="2"/>
+		<property name="maxIdleTime" value="200"/>
+	</bean>
+</beans>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="GBK"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+	http://www.springframework.org/schema/util
+	http://www.springframework.org/schema/util/spring-util-4.0.xsd"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:util="http://www.springframework.org/schema/util"
+	default-lazy-init="true">
+	<bean id="chinese" class="springXmlSchema.Chinese" p:age="29" p:axe-ref="stoneAxe"/>
+	
+	<!-- <bean id="chineseC" class="springXmlSchema" c:_0-ref="steelAxe" c:_1="29"/> -->
+	<bean id="chineseC" class="springXmlSchema.ChineseC" c:age="29" c:axe-ref ="steelAxe"/>
+	
+	<!-- 
+	util schema:
+		constant: FieldRetrievingFactoryBean.  Get fields.
+		property-path: PropertyPathFactoryBean. Get getter.
+		list: List Bean. id, list-class, scope. <value.../> <ref.../> <bean.../>
+		set: Set Bean. id, set-class, scope. <value.../> <ref.../> <bean.../>
+		map:
+		properties: Properties Bean. id, location, scope.
+	 -->
+	<bean id="chineseU" class="springXmlSchema.ChineseU"
+		p:age-ref="chinu.age" p:axe-ref="stoneAxe"
+		p:schools-ref="chinu.schools"
+		p:axes-ref="chinu.axes"
+		p:scores-ref="chinu.scores"/>
+		
+	<util:constant id="chinu.age" static-field="java.sql.Connection.TRANSACTION_SERIALIZABLE"/>
+	<util:properties id="confTest" location="classpath:message.properties"/>
+	<util:list id="chinu.schools" list-class="java.util.LinkedList">
+		<value>junior</value>
+		<value>senior</value>
+		<value>college</value>
+	</util:list>
+	<util:set id="chinu.axes" set-class="java.util.HashSet">
+		<value>String</value>
+		<bean class="springXmlSchema.SteelAxe"/>
+		<ref bean="stoneAxe"/>
+	</util:set>
+	<util:map id="chinu.scores" map-class="java.util.TreeMap">
+		<entry key="chin" value="87"/>
+		<entry key="math" value="88"/>
+		<entry key="pe" value="89"/>
+	</util:map>
+	
+	<!-- 
+	chop with stone chop
+		Age: 29
+		Spring invoked bean: SteelAxe
+		ChineseC: chop faster with steel chop
+		ChineseC age: 29
+		Spring invoked bean: SteelAxe
+		chop with stone chop
+		Age: 8
+		[junior, senior, college]
+		{chin=87, math=88, pe=89}
+		[springXmlSchema.StoneAxe@62175e41, String, springXmlSchema.SteelAxe@5e7ef926]
+	 -->
+		
+	<bean id="steelAxe" class="springXmlSchema.SteelAxe"/>
+	<bean id="stoneAxe" class="springXmlSchema.StoneAxe"/>
+</beans>

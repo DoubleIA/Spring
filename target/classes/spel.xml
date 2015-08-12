@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="GBK"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+	http://www.springframework.org/schema/util
+	http://www.springframework.org/schema/util/spring-util-4.0.xsd"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:util="http://www.springframework.org/schema/util"
+	default-lazy-init="true">
+	<!-- 
+	Express:
+		Object getValue(): evaluation expression
+		<T> T getValue(Class<T> desiredResultType):
+		Object getValue(EvaluationContext context):
+		<T> T getValue(EvaluationContext context, Class<T> desiredResultType):
+		Object getValue(Object rootObject):
+		<T> T getValue(Object rootObject, Class<T> desiredResultType):
+	 -->
+	<util:properties id="confTest" location="classpath:message.properties"/> 
+	
+	<bean id="author" class="springspel.Author"
+		p:name="#{T(java.lang.Math).random()}"
+		p:axe="#{new springspel.SteelAxe()}"
+		p:books="{ {confTest.a, confTest.b} }"/>
+		
+	 
+</beans>

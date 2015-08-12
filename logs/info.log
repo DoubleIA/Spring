@@ -1,0 +1,20 @@
+2015-08-03 20:25:53,396 INFO  (org.springframework.context.support.ClassPathXmlApplicationContext) - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@6628ad5a: startup date [Mon Aug 03 20:25:53 CST 2015]; root of context hierarchy
+2015-08-03 20:25:53,449 INFO  (org.springframework.beans.factory.xml.XmlBeanDefinitionReader) - Loading XML bean definitions from class path resource [aspectj.xml]
+2015-08-03 20:25:54,349 INFO  (springaop.LogAspect) - Log function...null
+2015-08-03 20:25:54,349 INFO  (springaop.LogAspect) - Log function...20
+2015-08-03 20:25:54,357 INFO  (springaop.LogAspect) - Log function...null
+2015-08-03 20:27:58,431 INFO  (org.springframework.context.support.ClassPathXmlApplicationContext) - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@788d241b: startup date [Mon Aug 03 20:27:58 CST 2015]; root of context hierarchy
+2015-08-03 20:27:58,491 INFO  (org.springframework.beans.factory.xml.XmlBeanDefinitionReader) - Loading XML bean definitions from class path resource [aspectj.xml]
+2015-08-03 20:27:59,130 INFO  (springaop.LogAspect) - Log function...null
+2015-08-03 20:27:59,130 INFO  (springaop.LogAspect) - Log function...20
+2015-08-03 20:27:59,139 INFO  (springaop.LogAspect) - Log function...null
+2015-08-03 20:28:13,594 INFO  (org.springframework.context.support.ClassPathXmlApplicationContext) - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@4e13aa4e: startup date [Mon Aug 03 20:28:13 CST 2015]; root of context hierarchy
+2015-08-03 20:28:13,646 INFO  (org.springframework.beans.factory.xml.XmlBeanDefinitionReader) - Loading XML bean definitions from class path resource [aspectj.xml]
+2015-08-03 20:28:14,276 INFO  (springaop.LogAspect) - Log function...null
+2015-08-03 20:28:14,277 INFO  (springaop.LogAspect) - Log function...20
+2015-08-03 20:28:14,284 INFO  (springaop.LogAspect) - Log function...null
+2015-08-03 20:28:42,812 INFO  (org.springframework.context.support.ClassPathXmlApplicationContext) - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@7a3da671: startup date [Mon Aug 03 20:28:42 CST 2015]; root of context hierarchy
+2015-08-03 20:28:42,859 INFO  (org.springframework.beans.factory.xml.XmlBeanDefinitionReader) - Loading XML bean definitions from class path resource [aspectj.xml]
+2015-08-03 20:28:43,477 INFO  (springaop.LogAspect) - Log function...null
+2015-08-03 20:28:43,478 INFO  (springaop.LogAspect) - Log function...20
+2015-08-03 20:28:43,485 INFO  (springaop.LogAspect) - Log function...null

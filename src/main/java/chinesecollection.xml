@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="GBK"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd"
+	default-lazy-init="true">
+	<bean id="chinese" class="springtest3.Chinese">
+		<property name="schools">
+			<list>
+				<value>junior</value>
+				<value>senior</value>
+				<value>college</value>
+			</list>
+		</property>
+		<property name="scores">
+			<map>
+				<entry key="math" value="87"/>
+				<entry key="english" value="89"/>
+				<entry key="pe" value="87"/>
+			</map>
+		</property>
+		<property name="phaseAxes">
+			<map>
+				<entry key="before" value-ref="stoneAxe"/>
+				<entry key="after" value-ref="steelAxe"/>
+			</map>
+		</property>
+		<property name="health">
+			<props>
+				<prop key="height">184cm</prop>
+				<prop key="weight">70kg</prop>
+			</props>
+			<!--
+			<value>
+				height=184cm
+				weight=70kg
+			</value>
+			-->
+		</property>
+		<property name="axes">
+			<set>
+				<value>common string</value>
+				<bean class="springtest3.SteelAxe"/>
+				<ref bean="stoneAxe"/>
+				<list>
+					<value>20</value>
+					<set>
+						<value type="int">30</value>
+					</set>
+				</list>
+			</set>
+		</property>
+		<property name="books">
+			<list>
+				<value>dabo is crazy</value>
+				<value>double is crazy</value>
+				<value>blues is crazy</value>
+			</list>
+		</property>
+	</bean>
+</beans>
